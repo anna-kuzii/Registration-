@@ -1,7 +1,7 @@
 import express from 'express';
 import users from './users';
 
-const router = express.Router();
+const router = new express.Router();
 
 router.use(express.json());
 

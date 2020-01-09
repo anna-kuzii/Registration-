@@ -1,9 +1,9 @@
-import User from "../models/User";
+import User from '../models/User';
 
-const createUser = async(req, res) => {
+const createUser = async (req, res) => {
   const { body: user } = req;
 
-  if(!user.email || !user.password) {
+  if (!user.email || !user.password) {
     return res.status(422).send('Please, fill in required fields.');
   }
 
