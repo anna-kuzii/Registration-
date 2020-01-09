@@ -4,7 +4,7 @@
   "description": "registration app using react and express",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint --ext .jsx --ext .js client/src",
+    "lint:js": "eslint --ext .jsx --ext .js client/src server/src",
     "lint:sass": "sass-lint --verbose -c .sass-lint.yml",
     "lint": "npm run lint:js && npm run lint:sass",
     "all-install": "npm install && cd client && npm install",
