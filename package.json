@@ -7,6 +7,7 @@
     "all-install": "npm install && cd client && npm install",
     "build": "cd client && npm run build",
     "start": "node server",
+    "watch": "nodemon ./server/src/index.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,9 +21,16 @@
   },
   "homepage": "https://github.com/dillontiner/react-express-boilerplate#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "babel-preset-env": "^1.7.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.8.6"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1"
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "nodemon": "^2.0.2"
   }
 }
