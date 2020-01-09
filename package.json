@@ -1,25 +1,26 @@
 {
-  "name": "react-express-boilerplate",
+  "name": "Registration",
   "version": "1.0.0",
-  "description": "``` mkdir project cd project npm init ```",
+  "description": "registration app using react and express",
   "main": "index.js",
   "scripts": {
+    "lint:js": "eslint --ext .jsx --ext .js client/src",
+    "lint:sass": "sass-lint --verbose -c .sass-lint.yml",
+    "lint": "npm run lint:js && npm run lint:sass",
     "all-install": "npm install && cd client && npm install",
     "build": "cd client && npm run build",
     "start": "node server",
-    "watch": "nodemon ./server/src/index.js --exec babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon ./server/src/index.js --exec babel-node"
   },
+  "precommit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dillontiner/react-express-boilerplate.git"
   },
-  "author": "",
+  "author": "Anna Kuzii",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dillontiner/react-express-boilerplate/issues"
-  },
-  "homepage": "https://github.com/dillontiner/react-express-boilerplate#readme",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "dotenv": "^8.2.0",
@@ -31,6 +32,15 @@
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
-    "nodemon": "^2.0.2"
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.2",
+    "pre-commit": "^1.2.2",
+    "sass-lint": "^1.13.1"
   }
 }
