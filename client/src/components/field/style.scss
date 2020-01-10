@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.field-form {
+  padding: 0;
+  margin-bottom: 20px;
+  border: 0;
+  box-shadow: none;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-family: $primary-font;
+    font-size: 10px;
+    line-height: 11px;
+    letter-spacing: .9px;
+    color: $form-label;
+    text-transform: uppercase;
+  }
+
+  input {
+    padding: 12px 15px;
+    margin-top: 8px;
+    border: 1px solid $input-border-color;
+
+    &::placeholder {
+      font-size: 12px;
+      line-height: 16px;
+      color: $input-placeholder;
+    }
+  }
+}
