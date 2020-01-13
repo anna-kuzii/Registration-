@@ -1,5 +1,5 @@
 import React from 'react';
-import { RegisterForm } from './containers/RegisterForm';
+import RegisterForm from './containers/RegisterForm';
 
 const App = () =>
   <RegisterForm />;
