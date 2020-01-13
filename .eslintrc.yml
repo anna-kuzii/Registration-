@@ -28,5 +28,6 @@ rules: {
       "ArrowFunctionExpression": false,
       "FunctionExpression": false
     }
-  }]
+  }],
+  max-len: ["error", { "code": 100 }]
 }
