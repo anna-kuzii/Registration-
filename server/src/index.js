@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import cors from 'cors';
 import appConfig from './configs/app.config';
 import * as dbConnect from './db/index';
 import routes from './routes';
@@ -7,6 +8,10 @@ import routes from './routes';
 const PORT = appConfig.PORT;
 
 const app = express();
+
+app.use(cors({
+  origin: appConfig.ALLOWED_ORIGINS,
+}));
 
 dbConnect.connect();
 

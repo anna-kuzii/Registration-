@@ -1,1 +1,1 @@
-export const SUBMIT_FORM = 'SUBMIT_FORM';
+export const REGISTER_PENDING = 'REGISTER_PENDING';
