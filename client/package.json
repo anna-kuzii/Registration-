@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "prop-types": "^15.7.2"
   },
-  "proxy": "http://localhost:9000/",
+  "proxy": "http://localhost:9001/",
   "devDependencies": {
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.1"

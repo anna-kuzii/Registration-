@@ -1,25 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FormField } from '../../components/field';
 import { submitRegister } from './actions';
 import './style.scss';
 
-const RegisterForm = ({ submitRegister }) => (
-  <form className="registration-form">
-    <FormField label="Name" type="text" placeholder="John" />
-    <FormField label="Surname" type="text" placeholder="Doe" />
-    <FormField label="Username" type="text" placeholder="JDoe" />
-    <FormField label="Email" type="email" placeholder="jonhdoe@gmail.com" />
-    <FormField label="Password" type="password" placeholder="4 + characters" />
+const RegisterForm = ({ submitRegister }) => {
+  const [formData, onSubmitReg] = useState({
+    name: '',
+    surname: '',
+    username: '',
+    email: '',
+    password: '',
+  });
 
-    <button
-      type="button"
-      className="sign-up"
-      onClick={() => submitRegister()}
-    >Sign Up</button>
-  </form>
-);
+  const onHandleRegistration = (e) => {
+    e.preventDefault();
+
+    submitRegister(formData);
+  };
+
+  return (
+    <form className="registration-form">
+      <FormField
+        label="Name"
+        name="name"
+        type="text"
+        placeholder="John"
+        value={formData}
+        onChangeInput={onSubmitReg}
+      />
+      <FormField
+        label="Surname"
+        name="surname"
+        type="text"
+        placeholder="Doe"
+        value={formData}
+        onChangeInput={onSubmitReg}
+      />
+      <FormField
+        label="Username"
+        name="username"
+        type="text"
+        placeholder="JDoe"
+        value={formData}
+        onChangeInput={onSubmitReg}
+      />
+      <FormField
+        label="Email"
+        name="email"
+        type="email"
+        placeholder="jonhdoe@gmail.com"
+        value={formData}
+        onChangeInput={onSubmitReg}
+      />
+      <FormField
+        label="Password"
+        name="password"
+        type="password"
+        placeholder="4 + characters"
+        value={formData}
+        onChangeInput={onSubmitReg}
+      />
+
+      <button
+        type="submit"
+        className="sign-up"
+        onClick={(e) => onHandleRegistration(e)}
+      >Sign Up</button>
+    </form>
+  );
+};
 
 const mapDispatchToProps = {
   submitRegister,
