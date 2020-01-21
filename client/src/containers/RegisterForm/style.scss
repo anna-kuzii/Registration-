@@ -14,7 +14,13 @@
     letter-spacing: .8px;
     color: $white;
     text-transform: uppercase;
+    cursor: pointer;
     background-color: $sign-up-bg;
     border: 0;
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $mine-shaft;
+    }
   }
 }
