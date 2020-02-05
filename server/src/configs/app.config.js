@@ -9,4 +9,5 @@ export default {
   ALLOWED_ORIGINS: ['http://127.0.0.1:3000', 'http://localhost:3000'],
   EMAIL: process.env.EMAIL || 'girls.sport.news',
   PASSPORT: process.env.PASSPORT || 'SportNews@)19',
+  JWT_KEY: process.env.JWT_KEY || 'PRIVATE_KEY',
 };
