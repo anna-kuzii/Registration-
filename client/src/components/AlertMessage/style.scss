@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.alert-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  font-family: $roboto-regular;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &.success {
+    color: $success-alert-color;
+    background-color: $success-alert-bg;
+    border-color: $success-alert-border;
+  }
+
+  &.danger {
+    color: $danger-alert-color;
+    background-color: $danger-alert-bg;
+    border-color: $danger-alert-border;
+  }
+}
