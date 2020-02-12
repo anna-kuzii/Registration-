@@ -25,21 +25,22 @@ const createUser = async (req, res) => {
       }
     }
 
-    newUser = new User({ name, username, email, password, surname });
+    newUser = new User({ first_name: name, username, email, password, last_name: surname });
 
     const salt = bcrypt.genSaltSync(10);
     newUser.password = await bcrypt.hashSync(password, salt);
 
+    const token = jwt.sign({ id: newUser._id }, appConfig.JWT_KEY, { expiresIn: '1d' });
+
+    newUser.token = token;
+
     await newUser.save((err) => {
       if (err) {
-        // TODO change error
-        return res.status(500).send('Error');
+        return res.status(500).send({ message: 'User wasn\'t save to data base' });
       }
-
-      sendEmail(registrationMail, email);
     });
 
-    const token = jwt.sign({ id: newUser._id }, appConfig.JWT_KEY, { expiresIn: '7d' });
+    await sendEmail(registrationMail, email, token, appConfig.BACKEND_DOMAIN);
 
     return res
         .header('access-token', token)
@@ -49,8 +50,35 @@ const createUser = async (req, res) => {
           message: 'The user is successfully registered.',
         });
   } catch (e) {
-    return res.status(500).send(e);
+    return res.status(500).send('Something goes wrong. Please trying again later');
   }
 };
 
-export default { createUser };
+const verifiedUser = async (req, res) => {
+  try {
+    const token = req.params.token;
+
+    const user = await User.findOne({ token });
+
+    if (!user) {
+      return res.status(500).send('Token doesn\'t exist');
+    }
+
+    const updatedUser = await User.findOneAndUpdate({ token }, {
+      is_verified: true,
+      token: '',
+    });
+
+    if (!updatedUser) {
+      return res.status(500).send('User doesn\'t exist');
+    }
+
+    await updatedUser.save();
+
+    res.redirect(`${appConfig.FRONT_DOMAIN}/login`);
+  } catch (e) {
+    return res.status(500).send('Something goes wrong. Please trying again later');
+  }
+};
+
+export default { createUser, verifiedUser };

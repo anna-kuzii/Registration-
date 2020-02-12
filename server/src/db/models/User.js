@@ -28,6 +28,13 @@ const schema = new Schema({
     type: Date,
     default: Date.now,
   },
+  is_verified: {
+    type: Boolean,
+    default: false,
+  },
+  token: {
+    type: String,
+  },
 });
 
 const User = mongoose.model('User', schema);

@@ -1,6 +1,6 @@
 import { getMonth } from '../helpers/getMonth';
 
-export const registrationMail = () => {
+export const registrationMail = (token, domain) => {
   const currentDate = new Date().getDate();
   const currentMonth = getMonth(new Date().getMonth());
   const currentYear = new Date().getFullYear();
@@ -15,6 +15,12 @@ export const registrationMail = () => {
                 Hello! You have successfully registered to Sport News <br /> ${currentMonth} ${currentDate}, ${currentYear}
             </td>
         </tr>
+        <tr>
+            <td colspan="3" style="font-family: Open Sans; font-weight: 600; font-size: 24px; line-height: 33px; text-align: center; padding: 20px 0;">
+                Please click <a href="${domain}/user/${token}">here</a> to confirm your registration
+            </td>
+        </tr>
+        
         </thead>
         <tbody style="background: #fff; text-align: center;">
         <tr>
