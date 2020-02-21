@@ -1,7 +1,7 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import * as CONSTANTS from './constants';
 import auth from '../../api/auth';
-import { history } from '../../helpers/history';
+import { history } from '../../utils/history';
 import { successRegister, failureRegister } from './actions';
 import { showAlertMsg } from '../AlertContainerMessage/actions';
 

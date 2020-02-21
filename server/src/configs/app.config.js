@@ -12,4 +12,5 @@ export default {
   JWT_KEY: process.env.JWT_KEY || 'PRIVATE_KEY',
   BACKEND_DOMAIN: process.env.BACKEND_DOMAIN || 'http://localhost:9001',
   FRONT_DOMAIN: process.env.FRONT_DOMAIN || 'http://localhost:3000',
+  TOKEN_TIME: process.env.TOKEN_TIME,
 };

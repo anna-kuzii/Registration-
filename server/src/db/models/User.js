@@ -32,9 +32,6 @@ const schema = new Schema({
     type: Boolean,
     default: false,
   },
-  token: {
-    type: String,
-  },
 });
 
 const User = mongoose.model('User', schema);
