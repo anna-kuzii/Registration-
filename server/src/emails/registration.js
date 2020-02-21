@@ -1,6 +1,7 @@
 import { getMonth } from '../helpers/getMonth';
+import appConfig from '../configs/app.config';
 
-export const registrationMail = () => {
+export const registrationMail = (token, domain) => {
   const currentDate = new Date().getDate();
   const currentMonth = getMonth(new Date().getMonth());
   const currentYear = new Date().getFullYear();
@@ -15,6 +16,7 @@ export const registrationMail = () => {
                 Hello! You have successfully registered to Sport News <br /> ${currentMonth} ${currentDate}, ${currentYear}
             </td>
         </tr>
+        
         </thead>
         <tbody style="background: #fff; text-align: center;">
         <tr>
@@ -41,6 +43,18 @@ export const registrationMail = () => {
             <td style="background: #f9f9fb; width: calc(100% / 3)"></td>
         </tr>
         </tbody>
+        <tfoot>
+            <tr>
+              <td colspan="3" style="font-family: Open Sans; font-weight: 600; font-size: 24px; line-height: 33px; text-align: center; padding: 20px 0 10px;">
+                  Please click <a href="${domain}/user/${token}">here</a> to confirm your registration
+              </td>
+          </tr>
+          <tr>
+              <td colspan="3" style="font-family: Open Sans; font-weight: 600; font-size: 14px; line-height: 25px; text-align: center; padding: 10px 0 20px;">
+                  This link is available only ${appConfig.TOKEN_TIME} hour. Hurry up!
+              </td>
+          </tr>
+        </tfoot>
     </table>`,
     /* eslint-disable max-len */
   };

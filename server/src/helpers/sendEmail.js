@@ -1,8 +1,8 @@
 import nodemailer from 'nodemailer';
 import appConfig from '../configs/app.config';
 
-export default async (emailTempate, userEmail) => {
-  const { subject, html } = emailTempate();
+export default async (emailTempate, userEmail, token, domain) => {
+  const { subject, html } = emailTempate(token, domain);
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
