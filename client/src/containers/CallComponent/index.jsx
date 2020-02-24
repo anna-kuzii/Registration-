@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Loader from '../../components/Loader';
 import { loadingData } from './actions';
 import { connect } from 'react-redux';
-import './style.scss';
 
 const CallComponent = ({ loadingData, match }) => {
   useEffect(() => {

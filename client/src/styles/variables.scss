@@ -1,10 +1,17 @@
 $roboto-regular: 'Roboto Regular';
 $roboto-bold: 'Roboto Bold';
 $open-sans: 'Open Sans';
+$open-sans-bold: 'Open Sans Bold';
+
+$min-desktop-width: 1024px;
+$max-tablet-width: $min-desktop-width - 1px;
+$min-tablet-width: 768px;
+$max-mobile-width: $min-tablet-width - 1px;
 
 $mine-shaft: #434c5d;
 $mischka: #d4d9e2;
 $alizarin-crimson: #d72130;
+$alizarin-crimson-2: #e02232;
 $white: #fff;
 $ghost: #c6ccd7;
 $content-color: #596377;
@@ -14,13 +21,26 @@ $fringy-flower: #c3e6cb;
 $persian-plum: #721c24;
 $cherub: #f8d7da;
 $azalea: #f5c6cb;
+$rose-white: #fffbfb;
+$azalea: #f7d3d6;
+$monza: #c80515;
+$black-30: rgba(0, 0, 0, .3);
 
 $primary-font: $roboto-regular;
 $primary-font-bold: $roboto-bold;
+$secondary-font: $open-sans;
+$secondary-font-bold: $open-sans-bold;
 
 $form-label: $mine-shaft;
 $input-border-color: $mischka;
-$sign-up-bg: $alizarin-crimson;
+$button-bg: $alizarin-crimson;
+$button-not-allowed-bg: $azalea;
+$button-not-allowed-border: $azalea;
+$button-not-allowed-color: $azalea;
+$button-hover-bg: $alizarin-crimson-2;
+$button-active-bg: $monza;
+$button-border: $alizarin-crimson;
+$button-color: $alizarin-crimson;
 $input-placeholder: $ghost;
 $input-error: $alizarin-crimson;
 $success-alert-color: $parsley;
@@ -29,4 +49,8 @@ $success-alert-border: $fringy-flower;
 $danger-alert-color: $persian-plum;
 $danger-alert-bg: $cherub;
 $danger-alert-border: $azalea;
+$banner-gradient: $black-30;
+$logo-bg: $alizarin-crimson;
+$logo-color: $rose-white;
+$text-color: $mine-shaft;
 

@@ -1,0 +1,66 @@
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+.fill-in-btn {
+  width: 100%;
+  padding: 15px;
+  font-family: $primary-font-bold;
+  color: $white;
+  cursor: pointer;
+  background-color: $button-bg;
+  border: 0;
+  outline: 0;
+
+  &:hover {
+    background-color: $button-hover-bg;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: $button-not-allowed-bg;
+  }
+
+  &:active {
+    background-color: $button-active-bg;
+  }
+}
+
+.btn {
+  font-family: $secondary-font;
+  color: $button-color;
+  border: 1px solid $button-border;
+
+  &:hover {
+    color: $white;
+    background-color: $button-hover-bg;
+  }
+
+  &:active {
+    color: $white;
+    background-color: $button-active-bg;
+  }
+
+  &[disabled] {
+    color: $button-not-allowed-color;
+    cursor: not-allowed;
+    background: $white;
+    border: 1px solid $button-not-allowed-border;
+  }
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1024px;
+}
