@@ -14,6 +14,18 @@ const auth = {
       throw error;
     }
   },
+
+  async verification(token) {
+    try {
+      return await axios({
+        method: 'get',
+        url: `/user/${token}`,
+        baseURL: appConfig.BASE_URL,
+      });
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export default auth;

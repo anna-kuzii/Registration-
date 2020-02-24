@@ -2,15 +2,17 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import * as CONSTANTS from './constants';
 import auth from '../../api/auth';
 import { history } from '../../utils/history';
-import { successRegister, failureRegister } from './actions';
+import { successRegister, failureRegister, pendingRegister } from './actions';
 import { showAlertMsg } from '../AlertContainerMessage/actions';
 
 export default function* registerSaga() {
-  yield takeEvery(CONSTANTS.REGISTER_PENDING, register);
+  yield takeEvery(CONSTANTS.REGISTER_SUBMIT, register);
 }
 
 export function* register({ userData }) {
   try {
+    yield put(pendingRegister());
+
     const response = yield call(auth.register, userData);
 
     localStorage.setItem('token', response.headers['access-token']);
