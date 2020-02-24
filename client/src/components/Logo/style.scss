@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.logo-wrapper {
+  position: absolute;
+  top: 0;
+  padding: 25px 65px;
+  background: $logo-bg;
+
+  p {
+    font-family: $secondary-font;
+    font-size: 22px;
+    line-height: 28px;
+    color: $logo-color;
+  }
+}

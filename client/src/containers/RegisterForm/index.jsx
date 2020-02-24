@@ -108,7 +108,7 @@ const RegisterForm = ({ submitRegister, loading }) => {
 
         <button
           type="submit"
-          className="sign-up"
+          className="sign-up fill-in-btn"
           onClick={(e) => onHandleRegistration(e)}
           disabled={!checkValidation()}
         >Sign Up

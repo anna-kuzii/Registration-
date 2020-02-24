@@ -16,5 +16,12 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: normal;
+  src: url('../assets/fonts/OpenSans/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Open Sans Bold';
+  font-style: normal;
+  font-weight: normal;
   src: url('../assets/fonts/OpenSans/OpenSans-Bold.ttf') format('truetype');
 }

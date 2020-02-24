@@ -1,26 +1,18 @@
 @import '../../styles/variables';
 
 .registration-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 38px - 25px);
   max-width: 390px;
   padding: 0 10px;
-  margin: 20px auto;
+  margin: 0 auto;
 
   .sign-up {
-    width: 100%;
-    padding: 15px;
-    font-family: $primary-font-bold;
     font-size: 12px;
     line-height: 14px;
     letter-spacing: .8px;
-    color: $white;
     text-transform: uppercase;
-    cursor: pointer;
-    background-color: $sign-up-bg;
-    border: 0;
-
-    &[disabled] {
-      cursor: not-allowed;
-      background-color: $mine-shaft;
-    }
   }
 }
