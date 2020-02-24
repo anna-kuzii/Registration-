@@ -24,7 +24,7 @@ const createUser = async (req, res) => {
       }
     });
 
-    await sendEmail(registrationMail, email, token, appConfig.BACKEND_DOMAIN);
+    await sendEmail(registrationMail, email, token);
 
     return res
         .header('access-token', token)
@@ -41,12 +41,11 @@ const createUser = async (req, res) => {
 const verifiedUser = async (req, res) => {
   try {
     const token = req.params.token;
-
     const verifiedToken = decodeJWT(token, appConfig.JWT_KEY);
 
     await updateUser(verifiedToken.id);
 
-    res.redirect(`${appConfig.FRONT_DOMAIN}/login`);
+    return res.status(200).send();
   } catch (e) {
     return res.status(500).send({ message: e.message });
   }

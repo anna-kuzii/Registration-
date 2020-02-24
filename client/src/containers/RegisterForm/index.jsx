@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { FormField } from '../../components/field';
+import { FormField } from '../../components/Field';
+import Loader from '../../components/Loader';
 import { submitRegister } from './actions';
 import { errors, inputRules } from '../../constants/formValidation';
 import './style.scss';
 
-const RegisterForm = ({ submitRegister }) => {
+const RegisterForm = ({ submitRegister, loading }) => {
   const formFiled = {
     name: '',
     surname: '',
@@ -56,60 +57,65 @@ const RegisterForm = ({ submitRegister }) => {
   };
 
   return (
-    <form className="registration-form">
-      <FormField
-        label="Name"
-        name="name"
-        type="text"
-        placeholder="John"
-        value={formData.name}
-        onChangeInput={onHandleChange}
-        error={error.name}
-      />
-      <FormField
-        label="Surname"
-        name="surname"
-        type="text"
-        placeholder="Doe"
-        value={formData.surname}
-        onChangeInput={onHandleChange}
-        error={error.surname}
-      />
-      <FormField
-        label="Username"
-        name="username"
-        type="text"
-        placeholder="JDoe"
-        value={formData.username}
-        onChangeInput={onHandleChange}
-        error={error.username}
-      />
-      <FormField
-        label="Email"
-        name="email"
-        type="email"
-        placeholder="jonhdoe@gmail.com"
-        value={formData.email}
-        onChangeInput={onHandleChange}
-        error={error.email}
-      />
-      <FormField
-        label="Password"
-        name="password"
-        type="password"
-        placeholder="4 + characters"
-        value={formData.password}
-        onChangeInput={onHandleChange}
-        error={error.password}
-      />
+    <Fragment>
+      { !loading ?
+      <form className="registration-form">
+        <FormField
+          label="Name"
+          name="name"
+          type="text"
+          placeholder="John"
+          value={formData.name}
+          onChangeInput={onHandleChange}
+          error={error.name}
+        />
+        <FormField
+          label="Surname"
+          name="surname"
+          type="text"
+          placeholder="Doe"
+          value={formData.surname}
+          onChangeInput={onHandleChange}
+          error={error.surname}
+        />
+        <FormField
+          label="Username"
+          name="username"
+          type="text"
+          placeholder="JDoe"
+          value={formData.username}
+          onChangeInput={onHandleChange}
+          error={error.username}
+        />
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="jonhdoe@gmail.com"
+          value={formData.email}
+          onChangeInput={onHandleChange}
+          error={error.email}
+        />
+        <FormField
+          label="Password"
+          name="password"
+          type="password"
+          placeholder="4 + characters"
+          value={formData.password}
+          onChangeInput={onHandleChange}
+          error={error.password}
+        />
 
-      <button
-        type="submit"
-        className="sign-up"
-        onClick={(e) => onHandleRegistration(e)}
-        disabled={!checkValidation()}
-      >Sign Up</button>
-    </form>
+        <button
+          type="submit"
+          className="sign-up"
+          onClick={(e) => onHandleRegistration(e)}
+          disabled={!checkValidation()}
+        >Sign Up
+        </button>
+      </form> :
+      <Loader /> }
+    </Fragment>
   );
 };
 
@@ -117,8 +123,13 @@ const mapDispatchToProps = {
   submitRegister,
 };
 
+const mapStateToProps = ({ user: { loading }}) => ({
+  loading,
+});
+
 RegisterForm.propTypes = {
   submitRegister: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
-export default connect(null, mapDispatchToProps)(RegisterForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

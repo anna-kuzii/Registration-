@@ -1,7 +1,7 @@
 import { getMonth } from '../helpers/getMonth';
 import appConfig from '../configs/app.config';
 
-export const registrationMail = (token, domain) => {
+export const registrationMail = (token) => {
   const currentDate = new Date().getDate();
   const currentMonth = getMonth(new Date().getMonth());
   const currentYear = new Date().getFullYear();
@@ -46,7 +46,7 @@ export const registrationMail = (token, domain) => {
         <tfoot>
             <tr>
               <td colspan="3" style="font-family: Open Sans; font-weight: 600; font-size: 24px; line-height: 33px; text-align: center; padding: 20px 0 10px;">
-                  Please click <a href="${domain}/user/${token}">here</a> to confirm your registration
+                  Please click <a href="${appConfig.FRONT_DOMAIN}/user/${token}">here</a> to confirm your registration
               </td>
           </tr>
           <tr>
