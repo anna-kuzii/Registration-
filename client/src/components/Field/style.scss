@@ -15,6 +15,11 @@
     letter-spacing: .9px;
     color: $form-label;
     text-transform: uppercase;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   input {

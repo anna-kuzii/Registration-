@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { FormField } from '../Field';
 import { errors, inputRules } from '../../constants/formValidation';
 
-export const LoginForm = () => {
+export const RecoverPasswordForm = () => {
   const formFiled = {
     email: '',
-    password: '',
   };
 
   const [formData, onSubmitLogin] = useState(formFiled);
@@ -42,7 +41,7 @@ export const LoginForm = () => {
     return Object.keys(error).every((k) => !error[k]) && Object.values(formData).every(Boolean);
   };
 
-  const onHandleLogin = (e) => {
+  const onHandlePassRestore = (e) => {
     e.preventDefault();
 
     // submitLogin(formData);
@@ -50,34 +49,33 @@ export const LoginForm = () => {
 
   return (
     <form className="unreg-user-form">
-      <h3 className="form-title">Log in to Sport News</h3>
-      <h4 className="form-desc">Sign in with your organizational account</h4>
+      <h3 className="form-title mb-30">Please enter your new password</h3>
       <FormField
-        label="Email address"
+        label="new password"
         name="email"
         type="email"
-        placeholder="jonhdoe@gmail.com"
+        placeholder="new password"
         value={formData.email}
         onChangeInput={onHandleChange}
         error={error.email}
       />
       <FormField
         label="Password"
-        name="password"
-        type="password"
-        placeholder="Enter your password"
-        value={formData.password}
+        name="email"
+        type="email"
+        placeholder="confirm password"
+        value={formData.email}
         onChangeInput={onHandleChange}
-        error={error.password}
-        intComp={<Link to="/forgot-password" className="internal-link">Forgot password?</Link>}
+        error={error.email}
       />
       <button
         type="submit"
         className="submit-form fill-in-btn"
-        onClick={(e) => onHandleLogin(e)}
+        onClick={(e) => onHandlePassRestore(e)}
         disabled={!checkValidation()}
-      >Log in
+      >Request resent link
       </button>
+      <Link to="/signin" className="link">Back to Sign in</Link>
     </form>
   );
 };

@@ -23,6 +23,7 @@ p {
   outline: 0;
 
   &:hover {
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
     background-color: $button-hover-bg;
   }
 
@@ -32,6 +33,7 @@ p {
   }
 
   &:active {
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
     background-color: $button-active-bg;
   }
 }
@@ -43,11 +45,13 @@ p {
 
   &:hover {
     color: $white;
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
     background-color: $button-hover-bg;
   }
 
   &:active {
     color: $white;
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
     background-color: $button-active-bg;
   }
 
@@ -59,8 +63,36 @@ p {
   }
 }
 
+.internal-link {
+  font-family: $open-sans;
+  font-size: 10px;
+  line-height: 14px;
+  color: $internal-link-color;
+  text-decoration: none;
+  text-transform: none;
+
+  &:hover {
+    color: $internal-link-color-hover;
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
+  }
+
+  &:active {
+    color: $internal-link-color-active;
+    cursor: url('../assets/imgs/cursor.svg') 0 0, pointer;
+  }
+
+  &[disabled] {
+    color: $internal-link-color-disabled;
+  }
+}
+
 .container {
   display: flex;
   width: 100%;
   max-width: 1024px;
+}
+
+// sass-lint:disable-block no-important
+.mb-30 {
+  margin-bottom: 30px !important;
 }
