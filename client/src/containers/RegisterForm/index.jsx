@@ -17,7 +17,6 @@ const RegisterForm = ({ submitRegister, loading }) => {
   };
 
   const [formData, onSubmitReg] = useState(formFiled);
-
   const [error, setError] = useState(formFiled);
 
   const validateField = (name, value) => {
@@ -59,9 +58,15 @@ const RegisterForm = ({ submitRegister, loading }) => {
   return (
     <Fragment>
       { !loading ?
-      <form className="registration-form">
+      <form className="unreg-user-form">
+        <h3 className="form-title">Create Account</h3>
+        <div className="social-network-block">
+          <div className="facebook-icon" />
+          <div className="google-icon" />
+        </div>
+        <h4 className="form-desc">Or use your email for registration:</h4>
         <FormField
-          label="Name"
+          label="First name"
           name="name"
           type="text"
           placeholder="John"
@@ -70,7 +75,7 @@ const RegisterForm = ({ submitRegister, loading }) => {
           error={error.name}
         />
         <FormField
-          label="Surname"
+          label="Last name"
           name="surname"
           type="text"
           placeholder="Doe"
@@ -108,7 +113,7 @@ const RegisterForm = ({ submitRegister, loading }) => {
 
         <button
           type="submit"
-          className="sign-up fill-in-btn"
+          className="submit-form fill-in-btn"
           onClick={(e) => onHandleRegistration(e)}
           disabled={!checkValidation()}
         >Sign Up

@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { FormField } from '../Field';
 import { errors, inputRules } from '../../constants/formValidation';
 
-export const LoginForm = () => {
+export const ForgotPasswordForm = () => {
   const formFiled = {
     email: '',
-    password: '',
   };
 
   const [formData, onSubmitLogin] = useState(formFiled);
@@ -42,7 +41,7 @@ export const LoginForm = () => {
     return Object.keys(error).every((k) => !error[k]) && Object.values(formData).every(Boolean);
   };
 
-  const onHandleLogin = (e) => {
+  const onHandlePassRestore = (e) => {
     e.preventDefault();
 
     // submitLogin(formData);
@@ -50,8 +49,8 @@ export const LoginForm = () => {
 
   return (
     <form className="unreg-user-form">
-      <h3 className="form-title">Log in to Sport News</h3>
-      <h4 className="form-desc">Sign in with your organizational account</h4>
+      <h3 className="form-title">Forgot your password?</h3>
+      <h4 className="form-desc">Enter your email address below and we’ll get you back on track.</h4>
       <FormField
         label="Email address"
         name="email"
@@ -61,23 +60,14 @@ export const LoginForm = () => {
         onChangeInput={onHandleChange}
         error={error.email}
       />
-      <FormField
-        label="Password"
-        name="password"
-        type="password"
-        placeholder="Enter your password"
-        value={formData.password}
-        onChangeInput={onHandleChange}
-        error={error.password}
-        intComp={<Link to="/forgot-password" className="internal-link">Forgot password?</Link>}
-      />
       <button
         type="submit"
         className="submit-form fill-in-btn"
-        onClick={(e) => onHandleLogin(e)}
+        onClick={(e) => onHandlePassRestore(e)}
         disabled={!checkValidation()}
-      >Log in
+      >Request resent link
       </button>
+      <Link to="/signin" className="link">Back to Sign in</Link>
     </form>
   );
 };

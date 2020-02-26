@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.registration-form {
+.unreg-user-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,10 +9,77 @@
   padding: 0 10px;
   margin: 0 auto;
 
-  .sign-up {
+  .submit-form {
     font-size: 12px;
     line-height: 14px;
     letter-spacing: .8px;
     text-transform: uppercase;
+  }
+
+  .link {
+    padding-top: 12px;
+    font-family: $open-sans;
+    font-size: 12px;
+    line-height: 16px;
+    color: $black;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .form-title {
+    margin: 0;
+    font-family: $open-sans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+    color: $black;
+  }
+
+  .form-desc {
+    margin: 10px 0 25px;
+    font-family: $open-sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19px;
+    color: $content-color;
+  }
+
+  .social-network-block {
+    display: flex;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      border: 1px solid $black;
+      border-radius: 50%;
+    }
+
+    .google-icon {
+      margin-right: 12px;
+      background: url('../../assets/imgs/google-icon.svg') no-repeat center;
+
+      &:hover {
+        cursor: url('../../assets/imgs/cursor.svg') 0 0, pointer;
+        background: url('../../assets/imgs/google-icon-hover.svg') no-repeat center;
+      }
+    }
+
+    .facebook-icon {
+      margin-right: 12px;
+      background: url('../../assets/imgs/fb-icon.svg') no-repeat center;
+
+      &:hover {
+        cursor: url('../../assets/imgs/cursor.svg') 0 0, pointer;
+        background: url('../../assets/imgs/fb-icon-hover.svg') no-repeat center;
+      }
+    }
+
+    &:hover {
+      border-color: $button-border;
+    }
   }
 }
